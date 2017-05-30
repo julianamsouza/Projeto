@@ -1,7 +1,7 @@
-package com.dell.juliana.filme.model;
+package model;
 
 /**
- * Created by Juliana on 27/05/2017.
+ * Created by root on 25/05/17.
  */
 
 public class Categoria {
@@ -29,5 +29,3 @@ public class Categoria {
         return this.name;
     }
 }
-
-
