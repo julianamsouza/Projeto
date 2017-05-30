@@ -1,0 +1,9 @@
+<resources>
+<string name="app_name">Filme</string>
+<string name="titulo">Titulo</string>
+<string name="tipo">Tipo</string>
+<string name="sinopse">Sinopse</string>
+<string name="save">Salvar</string>
+<string name="visualize">Visualizar</string>
+<string name="information">Informação</string>
+</resources>
