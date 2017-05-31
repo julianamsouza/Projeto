@@ -1,7 +1,8 @@
+package com.dell.juliana.filme;
+
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
-import com.dell.juliana.filme.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -16,7 +17,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps2);
+        setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -37,9 +38,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+        // Add a marker in Recife and move the camera
         LatLng recife = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(recife).title("cidade recife"));
+        mMap.addMarker(new MarkerOptions().position(recife).title("Estamos em Recife"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(recife));
     }
 }
