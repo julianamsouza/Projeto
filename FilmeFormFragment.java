@@ -42,8 +42,8 @@ public class FilmeFormFragment extends Fragment {
             //carregar sinopse
         }
 
-
         Button btSave = (Button) view.findViewById(R.id.bt_save);
+
 
 
         //Setar para botão salvar os dados
