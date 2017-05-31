@@ -1,20 +1,17 @@
 package com.dell.juliana.filme;
 
 import android.app.ProgressDialog;
-import android.database.sqlite.SQLiteCantOpenDatabaseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.dell.juliana.filme.fragments.PageFragment;
 import com.dell.juliana.filme.model.Categoria;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +21,6 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.Proxy;
 import java.net.URL;
 import java.util.List;
 import java.util.Scanner;
@@ -54,7 +50,7 @@ public class ViewpagerActivity extends AppCompatActivity {
 
             @Override
             protected void onPreExecute() {
-                dialog = ProgressDialog.show(ViewpagerActivity.this,"Aguarde...","listando pokemons.",true,true);
+                dialog = ProgressDialog.show(ViewpagerActivity.this,"Aguarde...","listando filmes.",true,true);
             }
 
             @Override
