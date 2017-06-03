@@ -59,7 +59,7 @@ public class ViewpagerActivity extends AppCompatActivity {
                 List<Categoria> categorias = null;
 
                 try {
-                    URL url = new URL("http://pokeapi.co/api/v2/pokemon");
+                    URL url = new URL("http://api.androidhive.info/json/movies.json");
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
                     connection.connect();
