@@ -1,9 +1,13 @@
 <resources>
-<string name="app_name">Filme</string>
-<string name="titulo">Titulo</string>
-<string name="tipo">Tipo</string>
-<string name="sinopse">Sinopse</string>
-<string name="save">Salvar</string>
-<string name="visualize">Visualizar</string>
-<string name="information">Informação</string>
+    <string name="app_name">Filme</string>
+    <string name="titulo">Titulo</string>
+    <string name="tipo">Tipo</string>
+    <string name="sinopse">Sinopse</string>
+    <string name="save">Salvar</string>
+    <string name="visualize">Visualizar</string>
+    <string name="information">Informação</string>
+    <string name="address">endereço</string>
+    <string name="title_activity_maps">Map</string>
+
+
 </resources>
