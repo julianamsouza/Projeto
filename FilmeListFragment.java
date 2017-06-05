@@ -30,7 +30,6 @@ import java.util.List;
 public class FilmeListFragment extends Fragment {
 
 
-
     List<Filme> filmes = new ArrayList<Filme>();
     private ArrayAdapter<String> adapter;
     private ListView lvFilmes;
@@ -42,11 +41,10 @@ public class FilmeListFragment extends Fragment {
         //Pegar Referência  do ListView e Button
         lvFilmes = (ListView) view.findViewById(R.id.lv_filmes);
         Button btAdiciona = (Button) view.findViewById(R.id.bt_adiciona);
-        final Button btRemove = (Button) view.findViewById(R.id.bt_remove);
 
         //Popular a Listagem
         /*adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1,students);
+                android.R.layout.simple_list_item_1,filmes);
         lvFilmes.setAdapter(adapter); */
 
         loadFilmes();
@@ -54,88 +52,72 @@ public class FilmeListFragment extends Fragment {
         lvFilmes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //loadFilmeForm(filmes.get(position));
-
+                loadFilmeForm(filmes.get(position));
             }
         });
 
-        //Adicionar comportamento para o botão adiciona.
+
+
+
+        //Adicionar comportamento para o botão adionar.
         btAdiciona.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (isLandScape()) {
+                if(isLandScape()){
                     loadFilmeForm(null);
-                } else {
+                }else{
                     Intent it = new Intent(getActivity(), FormFilmeActivity.class);
                     startActivity(it);
                 }
-                //Adicionar comportamento para o botão remover
-                btRemove.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        if (isLandScape()) {
-                            loadFilmeForm(null);
-                        } else {
-                            Intent it = new Intent(getActivity(), FormFilmeActivity.class);
-                            startActivity(it);
-                        }
-                    }
-                });
-
-            }
-
-            public boolean isLandScape() {
-                Configuration configuration = getResources().getConfiguration();
-                if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
-                    return true;
-                return false;
-            }
-
-            private void loadFilmeForm(Filme filme) {
-                FragmentManager manager = getActivity().getSupportFragmentManager();
-                FragmentTransaction tx = manager.beginTransaction();
-                Fragment fragment = new FilmeFormFragment();
-                if (filme != null) {
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("filme", filme);
-                    fragment.setArguments(bundle);
-                }
-                tx.replace(R.id.fragment_filme_form, fragment);
-                tx.addToBackStack(null);
-                tx.commit();
-            }
-
-            public void loadFilmes() {
-
-                FilmeDAO dao = new FilmeDAO(getActivity());
-                filmes = dao.getAllFilmes();
-
-                List<String> filmesTitulos = new ArrayList<String>();
-
-                for (Filme filme : filmes) {
-                    filmesTitulos.add(filme.getTitulo());
-                }
-
-                adapter = new ArrayAdapter<String>(getActivity(),
-                        android.R.layout.simple_list_item_1, filmesTitulos);
-                lvFilmes.setAdapter(adapter);
-            }
-
-
-            @Override
-            public void onStart() {
-                return;
-                loadFilmes();
             }
         });
         return view;
     }
 
-    public void loadFilmes() {
+    public boolean isLandScape(){
+        Configuration configuration = getResources().getConfiguration();
+        if(configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
+            return true;
+        return false;
     }
+
+    private void loadFilmeForm(Filme filme) {
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        FragmentTransaction tx = manager.beginTransaction();
+        Fragment fragment = new FilmeFormFragment();
+        if(filme != null){
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("filme", filme);
+            fragment.setArguments(bundle);
+        }
+        tx.replace(R.id.fragment_filme_form, fragment);
+        tx.addToBackStack(null);
+        tx.commit();
+    }
+
+    public void loadFilmes() {
+
+        FilmeDAO dao = new FilmeDAO(getActivity());
+        filmes = dao.getAllFilmes();
+
+        List<String> filmesTitulos = new ArrayList<String>();
+
+        for (Filme filme : filmes) {
+            filmesTitulos.add(filme.getTitulo());
+        }
+
+        adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1,filmesTitulos);
+        lvFilmes.setAdapter(adapter);
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        loadFilmes();
+    }
+
+
 }
-
-
-
