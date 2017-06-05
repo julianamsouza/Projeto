@@ -23,7 +23,7 @@ class PageFragmentAdapter extends FragmentPagerAdapter {
         this.titles = titles;
         this.pages.add(new PageFragment());
         this.pages.add(new PageFragment());
-        this.pages.add(new PageFragment());
+
     }
 
     @Override
