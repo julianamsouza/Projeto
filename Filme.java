@@ -24,9 +24,7 @@ public class Filme implements Serializable {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
+    public void setTipo(String tipo) { this.tipo = tipo;}
 
     public String getSinopse() {
         return sinopse;
