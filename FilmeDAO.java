@@ -34,8 +34,8 @@ public class FilmeDAO extends SQLiteOpenHelper{
     }
 
     //INSERT
-    public void insert(Filme filme){
-        String sql = "INSERT INTO Filmes (titulo,tipo,sinopse) VALUES ('" +filme.getTitulo()+"','"+filme.getTipo()+"','"+filme.getSinopse()+"','";
+    public void insert(Filme filme) {
+        String sql = "INSERT INTO Filmes (titulo,tipo,sinopse) VALUES ('" + filme.getTitulo() + "','" + filme.getTipo() + "','" + filme.getSinopse() + "','";
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL(sql);
         db.close();
@@ -43,7 +43,7 @@ public class FilmeDAO extends SQLiteOpenHelper{
 
     //GetAllFilmes
     public List<Filme> getAllFilmes(){
-        String sql = "SELECT * FROM Filme;";
+        String sql = "SELECT * FROM Filmes;";
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery(sql, null);
         List<Filme> filmes = new ArrayList<Filme>();
