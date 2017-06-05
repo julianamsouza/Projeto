@@ -16,7 +16,7 @@ import com.dell.juliana.filme.dao.FilmeDAO;
 import com.dell.juliana.filme.model.Filme;
 
 /**
- * Created by root on 12/05/17.
+ * Created by Juliana on 12/05/17.
  */
 
 public class FilmeFormFragment extends Fragment {
@@ -42,8 +42,8 @@ public class FilmeFormFragment extends Fragment {
             //carregar sinopse
         }
 
-        Button btSave = (Button) view.findViewById(R.id.bt_save);
 
+        Button btSave = (Button) view.findViewById(R.id.bt_save);
 
 
         //Setar para botão salvar os dados
