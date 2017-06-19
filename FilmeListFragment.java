@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by root on 11/05/17.
+ * Created by juliana on 15/05/17.
  */
 
 public class FilmeListFragment extends Fragment {
@@ -37,10 +37,10 @@ public class FilmeListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_filme_list, container, false );
+        View view = inflater.inflate(R.layout.fragment_filme_list, container, false);
         //Pegar Referência  do ListView e Button
         lvFilmes = (ListView) view.findViewById(R.id.lv_filmes);
-        Button btAdiciona = (Button) view.findViewById(R.id.bt_adiciona);
+        Button btAdicionar = (Button) view.findViewById(R.id.bt_adiciona);
 
         //Popular a Listagem
         /*adapter = new ArrayAdapter<String>(this,
@@ -57,16 +57,14 @@ public class FilmeListFragment extends Fragment {
         });
 
 
-
-
-        //Adicionar comportamento para o botão adionar.
-        btAdiciona.setOnClickListener(new View.OnClickListener() {
+        //Adicionar comportamento para o botão add.
+        btAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(isLandScape()){
+                if (isLandScape()) {
                     loadFilmeForm(null);
-                }else{
+                } else {
                     Intent it = new Intent(getActivity(), FormFilmeActivity.class);
                     startActivity(it);
                 }
@@ -75,9 +73,9 @@ public class FilmeListFragment extends Fragment {
         return view;
     }
 
-    public boolean isLandScape(){
+    public boolean isLandScape() {
         Configuration configuration = getResources().getConfiguration();
-        if(configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
+        if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
             return true;
         return false;
     }
@@ -85,8 +83,8 @@ public class FilmeListFragment extends Fragment {
     private void loadFilmeForm(Filme filme) {
         FragmentManager manager = getActivity().getSupportFragmentManager();
         FragmentTransaction tx = manager.beginTransaction();
-        Fragment fragment = new FilmeFormFragment();
-        if(filme != null){
+        Fragment fragment = new FilmeFormFragments();
+        if (filme != null) {
             Bundle bundle = new Bundle();
             bundle.putSerializable("filme", filme);
             fragment.setArguments(bundle);
@@ -98,6 +96,7 @@ public class FilmeListFragment extends Fragment {
 
     public void loadFilmes() {
 
+
         FilmeDAO dao = new FilmeDAO(getActivity());
         filmes = dao.getAllFilmes();
 
@@ -108,7 +107,7 @@ public class FilmeListFragment extends Fragment {
         }
 
         adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1,filmesTitulos);
+                android.R.layout.simple_list_item_1, filmesTitulos);
         lvFilmes.setAdapter(adapter);
     }
 
