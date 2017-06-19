@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="botaoMap" type="id" />
+    <item name="btnPager" type="id" />
+    <item name="acao_favorito" type="id" />
+    <item name="detalhe" type="id" />
+</resources>
