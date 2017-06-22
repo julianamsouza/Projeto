@@ -1,7 +1,7 @@
 package com.dell.juliana.filme;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -38,9 +38,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Recife and move the camera
-        LatLng recife = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(recife).title("Estamos em Recife"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(recife));
+        // Add a marker in Sydney and move the camera
+        LatLng unibratec = new LatLng(-8.1515521, -34.9199225);
+        mMap.addMarker(new MarkerOptions().position(unibratec).title("Estamos na Unibratec"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(unibratec, 17));
     }
 }
